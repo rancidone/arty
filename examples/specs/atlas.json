@@ -1,0 +1,9 @@
+{
+  "asset": "slime-atlas",
+  "revision": "atlas-r01",
+  "cell": [96, 64],
+  "grid": [2, 1],
+  "root": null,
+  "frames": [{"id": "sheet", "path": "../slime-original.png", "cell": [0, 0]}],
+  "constraints": {"binary_alpha": true}
+}

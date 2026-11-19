@@ -1,0 +1,13 @@
+{
+  "build_spec": "build.json",
+  "layer": "base",
+  "view_rect": [0, 0, 32, 32],
+  "zoom": 4,
+  "candidates": [
+    {"id": "original", "label": "Original", "operations": []},
+    {"id": "reduced", "label": "Half size on original canvas", "operations": [
+      {"op": "nearest", "size": [48, 32]},
+      {"op": "place", "canvas": [96, 64], "offset": [24, 16]}
+    ]}
+  ]
+}

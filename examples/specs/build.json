@@ -1,0 +1,30 @@
+{
+  "asset": "slime",
+  "revision": "native-r01",
+  "canvas": [
+    96,
+    64
+  ],
+  "root": null,
+  "layers": [
+    {
+      "id": "base",
+      "path": "../slime-original.png"
+    }
+  ],
+  "draw_order": [
+    "base"
+  ],
+  "constraints": {
+    "rgba": true,
+    "binary_alpha": true
+  },
+  "references": [
+    {
+      "path": "../slime-original.png",
+      "comparison": "registered_comparable",
+      "status": "synthetic fixture authority"
+    }
+  ],
+  "export_2x": true
+}

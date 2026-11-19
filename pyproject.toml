@@ -1,0 +1,57 @@
+[build-system]
+requires = ["hatchling>=1.26"]
+build-backend = "hatchling.build"
+
+[project]
+name = "arty"
+version = "0.1.0"
+description = "Local pixel-art generation, grid recovery, layered builds, atlases, and hash-bound revision review."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = ["numpy>=1.26", "Pillow>=10", "perfect-pixel==0.1.4", "openai>=3.52,<4"]
+license = "GPL-3.0-only"
+license-files = ["LICENSE"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Multimedia :: Graphics",
+]
+
+[project.urls]
+Repository = "https://github.com/rancidone/arty"
+Documentation = "https://github.com/rancidone/arty/tree/main/docs"
+Issues = "https://github.com/rancidone/arty/issues"
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+mcp = [
+    "mcp>=1.26,<2",
+]
+
+[project.scripts]
+arty = "art_pipeline.cli:main"
+arty-mcp = "art_pipeline.mcp_server:main"
+art-pipeline = "art_pipeline.cli:main"
+art-pipeline-mcp = "art_pipeline.mcp_server:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/art_pipeline"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+
+# Explicit public source contents: local work, credentials and backups cannot
+# enter an sdist merely because they exist in the checkout.
+[tool.hatch.build.targets.sdist]
+include = [
+    "/src", "/tests", "/docs", "/examples", "/scripts",
+    "/README.md", "/LICENSE", "/pyproject.toml", "/uv.lock",
+    "/CONTRIBUTING.md", "/SECURITY.md", "/.github",
+]
